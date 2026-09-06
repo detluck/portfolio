@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Pavlo Sytnyk — Portfolio" lang="en">
+  <section class="space-y-4">
+    <h1 class="text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">
+      Pavlo Sytnyk
+    </h1>
+    <p class="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+      Computer Science student at <strong class="text-neutral-900 dark:text-neutral-200">Hamburg University of Applied Sciences</strong> (Bachelor of Science). Passionate about building software and understanding how things work under the hood.
+    </p>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-xs font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-4">
+      Interests
+    </h2>
+    <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+      <li>• <strong>Backend development</strong> — especially with Java</li>
+      <li>• <strong>Operating systems &amp; Linux</strong></li>
+      <li>• <strong>C &amp; C++</strong> — systems programming and performance</li>
+      <li>• <strong>Web development</strong> — currently exploring the modern web stack</li>
+      <li>• <strong>Software architecture</strong>, networking, and low-level programming</li>
+    </ul>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-xs font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-4">
+      Tech Stack
+    </h2>
+
+    <div class="space-y-4 text-sm">
+      <div>
+        <span class="text-xs font-mono text-neutral-500 block mb-1">Languages</span>
+        <div class="flex flex-wrap gap-1.5">
+          {['Java', 'C++', 'C', 'Python', 'JavaScript', 'TypeScript', 'Go', 'SQL'].map((item) => (
+            <span class="px-2 py-0.5 text-xs rounded bg-neutral-200/70 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-mono">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <span class="text-xs font-mono text-neutral-500 block mb-1">Backend</span>
+        <div class="flex flex-wrap gap-1.5">
+          {['Spring Boot', 'PostgreSQL', 'REST APIs'].map((item) => (
+            <span class="px-2 py-0.5 text-xs rounded bg-neutral-200/70 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-mono">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <span class="text-xs font-mono text-neutral-500 block mb-1">Systems &amp; Tools</span>
+        <div class="flex flex-wrap gap-1.5">
+          {['Linux', 'Qt', 'QML', 'CMake', 'Git'].map((item) => (
+            <span class="px-2 py-0.5 text-xs rounded bg-neutral-200/70 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-mono">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <span class="text-xs font-mono text-neutral-500 block mb-1">Web</span>
+        <div class="flex flex-wrap gap-1.5">
+          {['TypeScript', 'React', 'React Native', 'Astro'].map((item) => (
+            <span class="px-2 py-0.5 text-xs rounded bg-neutral-200/70 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-mono">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-xs font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3">
+      Currently
+    </h2>
+    <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+      Studying Computer Science and working on projects to deepen my understanding of backend development, Linux, and systems programming. I enjoy building things from scratch, contributing to open source, and learning how software works beyond the abstraction layer.
+    </p>
+    <p class="mt-4 text-xs font-mono text-neutral-500 dark:text-neutral-400">
+      Always learning. Always building.
+    </p>
+  </section>
+</Layout>

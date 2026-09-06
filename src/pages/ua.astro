@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Павло Ситник — Портфоліо" lang="ua">
+  <section class="space-y-4">
+    <h1 class="text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">
+      Павло Ситник
+    </h1>
+    <p class="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+      Студент факультету комп'ютерних наук у <strong class="text-neutral-900 dark:text-neutral-200">Гамбурзькому університеті прикладних наук</strong> (Bachelor of Science). Захоплююся створенням програмного забезпечення та розумінням того, як системи працюють «під капотом».
+    </p>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-xs font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-4">
+      Інтереси
+    </h2>
+    <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+      <li>• <strong>Backend-розробка</strong> — особливо на Java</li>
+      <li>• <strong>Операційні системи &amp; Linux</strong></li>
+      <li>• <strong>C &amp; C++</strong> — системне програмування та продуктивність</li>
+      <li>• <strong>Веб-розробка</strong> — наразі досліджую сучасний веб-стек</li>
+      <li>• <strong>Архітектура ПЗ</strong>, комп'ютерні мережі та низькорівневе програмування</li>
+    </ul>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-xs font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-4">
+      Стек технологій
+    </h2>
+
+    <div class="space-y-4 text-sm">
+      <div>
+        <span class="text-xs font-mono text-neutral-500 block mb-1">Мови</span>
+        <div class="flex flex-wrap gap-1.5">
+          {['Java', 'C++', 'C', 'Python', 'JavaScript', 'TypeScript', 'Go', 'SQL'].map((item) => (
+            <span class="px-2 py-0.5 text-xs rounded bg-neutral-200/70 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-mono">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <span class="text-xs font-mono text-neutral-500 block mb-1">Backend</span>
+        <div class="flex flex-wrap gap-1.5">
+          {['Spring Boot', 'PostgreSQL', 'REST APIs'].map((item) => (
+            <span class="px-2 py-0.5 text-xs rounded bg-neutral-200/70 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-mono">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <span class="text-xs font-mono text-neutral-500 block mb-1">Системи та інструменти</span>
+        <div class="flex flex-wrap gap-1.5">
+          {['Linux', 'Qt', 'QML', 'CMake', 'Git'].map((item) => (
+            <span class="px-2 py-0.5 text-xs rounded bg-neutral-200/70 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-mono">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <span class="text-xs font-mono text-neutral-500 block mb-1">Web</span>
+        <div class="flex flex-wrap gap-1.5">
+          {['TypeScript', 'React', 'React Native', 'Astro'].map((item) => (
+            <span class="px-2 py-0.5 text-xs rounded bg-neutral-200/70 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-mono">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-xs font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3">
+      Зараз
+    </h2>
+    <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+      Вивчаю комп'ютерні науки та працюю над проєктами, щоб поглибити розуміння backend-розробки, Linux та системного програмування. Люблю створювати проєкти з нуля, робити внесок у відкритий код (open source) і досліджувати роботу ПЗ глибше рівня абстракцій.
+    </p>
+    <p class="mt-4 text-xs font-mono text-neutral-500 dark:text-neutral-400">
+      Завжди навчатися. Завжди будувати.
+    </p>
+  </section>
+</Layout>

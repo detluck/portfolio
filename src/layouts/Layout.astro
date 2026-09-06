@@ -1,0 +1,118 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  lang?: string;
+}
+
+const { title = 'Pavlo Sytnyk — Portfolio', lang = 'en' } = Astro.props;
+
+const disclaimers: Record<string, string> = {
+  en: 'Site currently in development — Work in progress',
+  de: 'Webseite befindet sich aktuell in der Entwicklung — Work in progress',
+  ua: 'Сайт наразі в процесі розробки — Work in progress',
+};
+const disclaimer = disclaimers[lang] ?? disclaimers.en;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+  <body class="bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 min-h-screen transition-colors duration-150 antialiased font-sans">
+    <div class="max-w-2xl mx-auto px-6 py-12 sm:py-16">
+      <header class="flex items-center justify-between pb-8 mb-8 border-b border-neutral-200 dark:border-neutral-800 text-sm">
+        <nav class="flex items-center gap-2">
+          <a
+            href="/"
+            class={`px-2.5 py-1 rounded transition-colors text-xs font-mono uppercase tracking-wider ${
+              lang === 'en'
+                ? 'font-semibold text-neutral-950 dark:text-white bg-neutral-200 dark:bg-neutral-800'
+                : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+            }`}
+          >EN</a>
+          <span class="text-neutral-300 dark:text-neutral-700">·</span>
+          <a
+            href="/de"
+            class={`px-2.5 py-1 rounded transition-colors text-xs font-mono uppercase tracking-wider ${
+              lang === 'de'
+                ? 'font-semibold text-neutral-950 dark:text-white bg-neutral-200 dark:bg-neutral-800'
+                : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+            }`}
+          >DE</a>
+          <span class="text-neutral-300 dark:text-neutral-700">·</span>
+          <a
+            href="/ua"
+            class={`px-2.5 py-1 rounded transition-colors text-xs font-mono uppercase tracking-wider ${
+              lang === 'ua'
+                ? 'font-semibold text-neutral-950 dark:text-white bg-neutral-200 dark:bg-neutral-800'
+                : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+            }`}
+          >UA</a>
+        </nav>
+
+        <button
+          id="theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+          class="px-2.5 py-1 text-xs font-mono rounded border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
+        >
+          <span class="dark:hidden">🌙 Dark</span>
+          <span class="hidden dark:inline">☀️ Light</span>
+        </button>
+      </header>
+
+      <aside aria-label="Development status" class="mb-8 px-3 py-2 text-xs font-mono rounded border border-amber-500/30 bg-amber-500/5 text-amber-800 dark:text-amber-300/90 flex items-center gap-2">
+        <span>🚧</span>
+        <span>{disclaimer}</span>
+      </aside>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="mt-16 pt-8 border-t border-neutral-200 dark:border-neutral-800 text-xs text-neutral-500 dark:text-neutral-500 flex justify-between items-center font-mono">
+        <span>© {new Date().getFullYear()} Pavlo Sytnyk</span>
+        <a href="https://github.com/detluck" target="_blank" rel="noopener noreferrer" class="hover:underline text-neutral-700 dark:text-neutral-300">github.com/detluck</a>
+      </footer>
+    </div>
+
+    <script is:inline>
+      const toggle = document.getElementById('theme-toggle');
+      toggle?.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('dark');
+        if (isDark) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>
