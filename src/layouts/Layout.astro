@@ -44,34 +44,34 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       }
     </script>
   </head>
-  <body class="bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 min-h-screen transition-colors duration-150 antialiased font-sans">
+  <body class="bg-ctp-base text-ctp-text min-h-screen transition-colors duration-200 antialiased font-sans">
     <div class="max-w-2xl mx-auto px-6 py-12 sm:py-16">
-      <header class="flex items-center justify-between pb-8 mb-8 border-b border-neutral-200 dark:border-neutral-800 text-sm">
+      <header class="flex items-center justify-between pb-8 mb-8 border-b border-ctp-surface0 text-sm">
         <nav class="flex items-center gap-2">
           <a
             href={base}
             class={`px-2.5 py-1 rounded transition-colors text-xs font-mono uppercase tracking-wider ${
               lang === 'en'
-                ? 'font-semibold text-neutral-950 dark:text-white bg-neutral-200 dark:bg-neutral-800'
-                : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+                ? 'font-semibold text-ctp-text bg-ctp-surface0'
+                : 'text-ctp-subtext0 hover:text-ctp-text'
             }`}
           >EN</a>
-          <span class="text-neutral-300 dark:text-neutral-700">·</span>
+          <span class="text-ctp-surface1">·</span>
           <a
             href={`${base}de`}
             class={`px-2.5 py-1 rounded transition-colors text-xs font-mono uppercase tracking-wider ${
               lang === 'de'
-                ? 'font-semibold text-neutral-950 dark:text-white bg-neutral-200 dark:bg-neutral-800'
-                : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+                ? 'font-semibold text-ctp-text bg-ctp-surface0'
+                : 'text-ctp-subtext0 hover:text-ctp-text'
             }`}
           >DE</a>
-          <span class="text-neutral-300 dark:text-neutral-700">·</span>
+          <span class="text-ctp-surface1">·</span>
           <a
             href={`${base}ua`}
             class={`px-2.5 py-1 rounded transition-colors text-xs font-mono uppercase tracking-wider ${
               lang === 'ua'
-                ? 'font-semibold text-neutral-950 dark:text-white bg-neutral-200 dark:bg-neutral-800'
-                : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+                ? 'font-semibold text-ctp-text bg-ctp-surface0'
+                : 'text-ctp-subtext0 hover:text-ctp-text'
             }`}
           >UA</a>
         </nav>
@@ -80,14 +80,14 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           id="theme-toggle"
           type="button"
           aria-label="Toggle theme"
-          class="px-2.5 py-1 text-xs font-mono rounded border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
+          class="px-2.5 py-1 text-xs font-mono rounded border border-ctp-surface0 text-ctp-subtext1 hover:text-ctp-text hover:bg-ctp-surface0 transition-colors cursor-pointer"
         >
-          <span class="dark:hidden">🌙 Dark</span>
-          <span class="hidden dark:inline">☀️ Light</span>
+          <span class="dark:hidden">🌙 Mocha</span>
+          <span class="hidden dark:inline">☀️ Latte</span>
         </button>
       </header>
 
-      <aside aria-label="Development status" class="mb-8 px-3 py-2 text-xs font-mono rounded border border-amber-500/30 bg-amber-500/5 text-amber-800 dark:text-amber-300/90 flex items-center gap-2">
+      <aside aria-label="Development status" class="mb-8 px-3 py-2 text-xs font-mono rounded border border-ctp-yellow/30 bg-ctp-yellow/10 text-ctp-yellow flex items-center gap-2">
         <span>🚧</span>
         <span>{disclaimer}</span>
       </aside>
@@ -96,9 +96,9 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
         <slot />
       </main>
 
-      <footer class="mt-16 pt-8 border-t border-neutral-200 dark:border-neutral-800 text-xs text-neutral-500 dark:text-neutral-500 flex justify-between items-center font-mono">
+      <footer class="mt-16 pt-8 border-t border-ctp-surface0 text-xs text-ctp-subtext0 flex justify-between items-center font-mono">
         <span>© {new Date().getFullYear()} Pavlo Sytnyk</span>
-        <a href="https://github.com/detluck" target="_blank" rel="noopener noreferrer" class="hover:underline text-neutral-700 dark:text-neutral-300">github.com/detluck</a>
+        <a href="https://github.com/detluck" target="_blank" rel="noopener noreferrer" class="hover:underline text-ctp-blue">github.com/detluck</a>
       </footer>
     </div>
 
