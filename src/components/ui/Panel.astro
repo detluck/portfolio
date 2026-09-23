@@ -1,0 +1,37 @@
+---
+import PanelHeader from "./PanelHeader.astro";
+
+interface Props {
+  title?: string;
+  showDots?: boolean;
+  class?: string;
+  bodyClass?: string;
+}
+
+const {
+  title,
+  showDots = true,
+  class: className = "",
+  bodyClass = "p-5",
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    "relative rounded-2xl border border-ctp-surface0/70 bg-ctp-mantle/80 backdrop-blur-md",
+    "shadow-xl shadow-black/10 overflow-hidden transition-all duration-200",
+    className,
+  ]}
+>
+  {
+    Astro.slots.has("header") ? (
+      <slot name="header" />
+    ) : title ? (
+      <PanelHeader title={title} showDots={showDots} />
+    ) : null
+  }
+
+  <div class:list={["font-mono text-sm leading-relaxed", bodyClass]}>
+    <slot />
+  </div>
+</div>

@@ -1,0 +1,74 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type BaseProps = {
+  variant?: "primary" | "secondary" | "outline" | "ghost";
+  size?: "sm" | "md" | "lg";
+  class?: string;
+};
+
+type ButtonProps = BaseProps &
+  Omit<HTMLAttributes<"button">, "type"> & {
+    href?: never;
+    type?: "button" | "submit" | "reset";
+  };
+
+type AnchorProps = BaseProps &
+  HTMLAttributes<"a"> & {
+    href: string;
+  };
+
+type Props = ButtonProps | AnchorProps;
+
+const {
+  variant = "primary",
+  size = "md",
+  href,
+  class: className = "",
+  ...rest
+} = Astro.props;
+
+const { type = "button", ...buttonRest } = rest as ButtonProps;
+const anchorRest = rest as Omit<HTMLAttributes<"a">, "href">;
+
+const variants = {
+  primary:
+    "bg-ctp-peach text-ctp-base font-bold shadow-[0_0_18px_rgba(250,179,135,0.35)] hover:shadow-[0_0_26px_rgba(250,179,135,0.55)] hover:brightness-105 active:scale-[0.98]",
+  secondary:
+    "bg-ctp-surface0/70 text-ctp-text border border-ctp-surface1/60 hover:bg-ctp-surface0 hover:border-ctp-surface2 active:scale-[0.98]",
+  outline:
+    "bg-transparent text-ctp-text border border-ctp-surface1 hover:border-ctp-lavender hover:text-ctp-lavender active:scale-[0.98]",
+  ghost:
+    "bg-transparent text-ctp-subtext0 hover:text-ctp-text hover:bg-ctp-surface0/50 active:scale-[0.98]",
+};
+
+const sizes = {
+  sm: "px-3.5 py-1.5 text-xs",
+  md: "px-5 py-2.5 text-sm font-semibold",
+  lg: "px-7 py-3 text-base font-semibold",
+};
+
+const classes = [
+  "inline-flex items-center justify-center gap-2",
+  "rounded-full font-mono cursor-pointer",
+  "transition-all duration-200 select-none",
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ctp-lavender",
+  variants[variant],
+  sizes[size],
+  className,
+].filter(Boolean).join(" ");
+---
+
+{
+  href ? (
+    <a href={href} class={classes} {...anchorRest}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes} {...buttonRest}>
+      <slot />
+    </button>
+  )
+}
+
+

@@ -1,0 +1,62 @@
+---
+import Button from "./ui/Button.astro";
+
+interface Props {
+  badge?: string;
+  role?: string;
+  greeting?: string;
+  name?: string;
+  bio?: string;
+  projectsText?: string;
+  githubText?: string;
+  githubUrl?: string;
+}
+
+const {
+  badge = "SYSTEM.KERNEL :: V2.5.0 ONLINE",
+  role = "COMPUTER SCIENCE STUDENT",
+  greeting = "Hello, I'm",
+  name = "Pavlo Sytnyk",
+  bio = "Computer Science student at Hamburg University of Applied Sciences. Passionate about backend systems, Linux, and low-level software.",
+  projectsText = "VIEW PROJECTS",
+  githubText = "VISIT GITHUB",
+  githubUrl = "https://github.com/detluck",
+} = Astro.props;
+---
+
+<section class="space-y-6">
+  {badge && (
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-ctp-peach/30 bg-ctp-peach/10 text-ctp-peach font-mono text-xs tracking-wider uppercase">
+      <span class="w-1.5 h-1.5 rounded-full bg-ctp-peach animate-pulse"></span>
+      <span>{badge}</span>
+    </div>
+  )}
+
+  {role && (
+    <div class="text-xs font-mono font-semibold tracking-widest text-ctp-peach uppercase">
+      {role}
+    </div>
+  )}
+
+  <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ctp-text leading-[1.15]">
+    {greeting} <br />
+    <span class="bg-gradient-to-r from-ctp-peach via-ctp-yellow to-ctp-blue bg-clip-text text-transparent">
+      {name}
+    </span>
+  </h1>
+
+  {bio && (
+    <p class="text-base text-ctp-subtext0 font-mono leading-relaxed max-w-xl">
+      {bio}
+    </p>
+  )}
+
+  <div class="flex flex-wrap items-center gap-3 pt-2">
+    <Button variant="primary" href="#projects">
+      {projectsText}
+    </Button>
+    <Button variant="secondary" href={githubUrl} target="_blank" rel="noopener noreferrer">
+      {githubText}
+    </Button>
+  </div>
+</section>

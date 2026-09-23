@@ -1,91 +1,149 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import Panel from '../components/ui/Panel.astro';
+import Button from '../components/ui/Button.astro';
+import meImage from '../assets/me.jpg';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
 <Layout title="Павло Ситник — Портфоліо" lang="ua">
-  <section class="space-y-4">
-    <h1 class="text-3xl font-bold tracking-tight text-ctp-text">
-      Павло Ситник
-    </h1>
-    <p class="text-base text-ctp-subtext0 leading-relaxed">
-      Студент факультету комп'ютерних наук у <strong class="text-ctp-text font-semibold">Гамбурзькому університеті прикладних наук</strong> (Bachelor of Science). Захоплююся створенням програмного забезпечення та розумінням того, як системи працюють «під капотом».
-    </p>
-  </section>
+  <div class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+      <div class="md:col-span-4 flex flex-col gap-4">
+        <Panel title="imv me.jpg" bodyClass="p-0">
+          <div class="overflow-hidden aspect-square w-full">
+            <Image
+              src={meImage}
+              alt="Павло Ситник"
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+        </Panel>
 
-  <section class="mt-10">
-    <h2 class="text-xs font-mono uppercase tracking-wider text-ctp-subtext1 mb-4">
-      Інтереси
-    </h2>
-    <ul class="space-y-2 text-sm text-ctp-text">
-      <li>• <strong>Backend-розробка</strong> — особливо на Java</li>
-      <li>• <strong>Операційні системи &amp; Linux</strong></li>
-      <li>• <strong>C &amp; C++</strong> — системне програмування та продуктивність</li>
-      <li>• <strong>Веб-розробка</strong> — наразі досліджую сучасний веб-стек</li>
-      <li>• <strong>Архітектура ПЗ</strong>, комп'ютерні мережі та низькорівневе програмування</li>
-    </ul>
-  </section>
+        <Panel title="systemctl status" bodyClass="p-4" class="flex-1 flex flex-col justify-center">
+          <div class="space-y-2.5 font-mono text-xs">
+            <div class="flex items-center gap-2">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-ctp-green opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-ctp-green"></span>
+              </span>
+              <span class="text-ctp-green font-semibold">доступний для роботи</span>
+            </div>
 
-  <section class="mt-10">
-    <h2 class="text-xs font-mono uppercase tracking-wider text-ctp-subtext1 mb-4">
-      Стек технологій
-    </h2>
-
-    <div class="space-y-4 text-sm">
-      <div>
-        <span class="text-xs font-mono text-ctp-subtext1 block mb-1.5">Мови</span>
-        <div class="flex flex-wrap gap-1.5">
-          {['Java', 'C++', 'C', 'Python', 'JavaScript', 'TypeScript', 'Go', 'SQL'].map((item) => (
-            <span class="px-2 py-0.5 text-xs rounded bg-ctp-surface0 text-ctp-text border border-ctp-surface1/40 font-mono">
-              {item}
-            </span>
-          ))}
-        </div>
+            <div class="text-[11px] text-ctp-subtext0 space-y-1 pt-2 border-t border-ctp-surface0/60">
+              <div class="flex items-center justify-between">
+                <span class="text-ctp-subtext1">локація:</span>
+                <span class="text-ctp-text">Hamburg, DE</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-ctp-subtext1">пошук:</span>
+                <span class="text-ctp-yellow">intern / working student</span>
+              </div>
+            </div>
+          </div>
+        </Panel>
       </div>
 
-      <div>
-        <span class="text-xs font-mono text-ctp-subtext1 block mb-1.5">Backend</span>
-        <div class="flex flex-wrap gap-1.5">
-          {['Spring Boot', 'PostgreSQL', 'REST APIs'].map((item) => (
-            <span class="px-2 py-0.5 text-xs rounded bg-ctp-surface0 text-ctp-text border border-ctp-surface1/40 font-mono">
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
+      <Panel title="whoami" class="md:col-span-8 flex flex-col" bodyClass="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+        <div class="space-y-4 font-mono flex-1 flex flex-col">
+          <div>
+            <div class="text-xs text-ctp-subtext0 flex items-center gap-1.5">
+              <span class="text-ctp-green font-semibold">detluck@workstation</span>
+              <span class="text-ctp-surface2">:</span>
+              <span class="text-ctp-blue font-semibold">~</span>
+              <span class="text-ctp-subtext1">$ whoami</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-ctp-text font-sans mt-2">
+              Павло Ситник
+            </h1>
+            <p class="text-xs text-ctp-peach tracking-wide mt-1">
+              CS @ Гамбурзький університет прикладних наук
+            </p>
+          </div>
 
-      <div>
-        <span class="text-xs font-mono text-ctp-subtext1 block mb-1.5">Системи та інструменти</span>
-        <div class="flex flex-wrap gap-1.5">
-          {['Linux', 'Qt', 'QML', 'CMake', 'Git'].map((item) => (
-            <span class="px-2 py-0.5 text-xs rounded bg-ctp-surface0 text-ctp-text border border-ctp-surface1/40 font-mono">
-              {item}
+          <div class="pt-3 border-t border-ctp-surface0/60 text-xs">
+            <span class="text-ctp-subtext1 block mb-2 font-semibold tracking-wider uppercase">
+              Корисні посилання:
             </span>
-          ))}
-        </div>
-      </div>
+            <ul class="space-y-1.5">
+              <li>
+                <a
+                  href="https://github.com/detluck"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 text-ctp-blue hover:text-ctp-lavender hover:underline transition-colors"
+                >
+                  <span class="text-ctp-surface2">&gt;</span>
+                  <span>github.com/detluck</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/pavlo-sytnyk-785512434"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 text-ctp-blue hover:text-ctp-lavender hover:underline transition-colors"
+                >
+                  <span class="text-ctp-surface2">&gt;</span>
+                  <span>linkedin.com/in/pavlo-sytnyk</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:pavlosytnyk@protonmail.com"
+                  class="inline-flex items-center gap-2 text-ctp-blue hover:text-ctp-lavender hover:underline transition-colors"
+                >
+                  <span class="text-ctp-surface2">&gt;</span>
+                  <span>pavlosytnyk@protonmail.com</span>
+                </a>
+              </li>
+            </ul>
+          </div>
 
-      <div>
-        <span class="text-xs font-mono text-ctp-subtext1 block mb-1.5">Web</span>
-        <div class="flex flex-wrap gap-1.5">
-          {['TypeScript', 'React', 'React Native', 'Astro'].map((item) => (
-            <span class="px-2 py-0.5 text-xs rounded bg-ctp-surface0 text-ctp-text border border-ctp-surface1/40 font-mono">
-              {item}
+          <div class="pt-3 border-t border-ctp-surface0/60 text-xs">
+            <span class="text-ctp-subtext1 block mb-2 font-semibold tracking-wider uppercase">
+              Основний стек:
             </span>
-          ))}
+            <div class="flex flex-wrap gap-1.5">
+              {['Java', 'C++', 'C', 'Linux', 'Spring Boot', 'PostgreSQL', 'TypeScript', 'Astro'].map((tech) => (
+                <span class="px-2 py-0.5 rounded-md bg-ctp-surface0/70 text-ctp-text border border-ctp-surface1/40 text-[11px]">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-ctp-surface0/60 flex-1 flex flex-wrap items-center justify-center gap-4">
+            <Button variant="primary" size="md" href={`${base}project`}>
+              Мої проєкти
+            </Button>
+            <Button variant="primary" size="md" href={`${base}github`}>
+              GitHub статистика
+            </Button>
+          </div>
         </div>
-      </div>
+      </Panel>
     </div>
-  </section>
 
-  <section class="mt-10">
-    <h2 class="text-xs font-mono uppercase tracking-wider text-ctp-subtext1 mb-3">
-      Зараз
-    </h2>
-    <p class="text-sm text-ctp-subtext0 leading-relaxed">
-      Вивчаю комп'ютерні науки та працюю над проєктами, щоб поглибити розуміння backend-розробки, Linux та системного програмування. Люблю створювати проєкти з нуля, робити внесок у відкритий код (open source) і досліджувати роботу ПЗ глибше рівня абстракцій.
-    </p>
-    <p class="mt-4 text-xs font-mono text-ctp-subtext1">
-      Завжди навчатися. Завжди будувати.
-    </p>
-  </section>
+    <Panel title='getent passwd "$USER"' bodyClass="p-5 sm:p-6">
+      <div class="space-y-4">
+        <div class="text-xs bg-ctp-crust/70 p-3 rounded-xl border border-ctp-surface0/60 text-ctp-subtext0 font-mono overflow-x-auto shadow-inner">
+          <span class="text-ctp-peach">detluck</span>:x:1000:1000:<span class="text-ctp-yellow">Павло Ситник (Комп'ютерні науки B.Sc.)</span>:<span class="text-ctp-blue">/home/detluck</span>:<span class="text-ctp-green">/usr/bin/zsh</span>
+        </div>
+
+        <p class="text-sm text-ctp-subtext0 leading-relaxed font-sans">
+          Студент факультету комп'ютерних наук у <strong class="text-ctp-text font-semibold">Гамбурзькому університеті прикладних наук</strong> (HAW Hamburg). Захоплююся розробкою програмного забезпечення з нуля, backend-системами (особливо на Java), операційними системами Linux та системним програмуванням на C та C++.
+        </p>
+
+        <div class="pt-2">
+          <Button variant="primary" size="sm" href={`${base}about`}>
+            Більше про мене &rarr;
+          </Button>
+        </div>
+      </div>
+    </Panel>
+  </div>
 </Layout>

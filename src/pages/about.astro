@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Panel from '../components/ui/Panel.astro';
+import Button from '../components/ui/Button.astro';
+---
+
+<Layout title="About — Pavlo Sytnyk" lang="en">
+  <div class="space-y-8">
+    <Panel title="man pavlo(1)">
+      <div class="space-y-6 text-sm text-ctp-subtext0 font-mono leading-relaxed">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-ctp-peach block mb-1">NAME</span>
+          <p class="text-ctp-text text-base font-bold font-sans">
+            Pavlo Sytnyk — Computer Science Student &amp; Developer
+          </p>
+        </div>
+
+        <div>
+          <span class="text-xs uppercase tracking-widest text-ctp-peach block mb-1">SYNOPSIS</span>
+          <p class="text-ctp-text">
+            pavlo [--backend=java] [--systems=c/c++] [--os=linux] [--web=astro/react]
+          </p>
+        </div>
+
+        <div>
+          <span class="text-xs uppercase tracking-widest text-ctp-peach block mb-1">DESCRIPTION</span>
+          <p class="font-sans leading-relaxed text-ctp-subtext0">
+            Currently pursuing a Bachelor of Science in Computer Science at <strong class="text-ctp-text font-semibold">Hamburg University of Applied Sciences (HAW Hamburg)</strong>. Passionate about software architecture, operating systems, Linux, and low-level computing.
+          </p>
+          <p class="font-sans leading-relaxed text-ctp-subtext0 mt-3">
+            I enjoy building software from the ground up, contributing to open-source software, and understanding how applications interact with the kernel and hardware under the hood.
+          </p>
+        </div>
+
+        <div>
+          <span class="text-xs uppercase tracking-widest text-ctp-peach block mb-2">TECH STACK</span>
+          <div class="space-y-3 font-mono text-xs">
+            <div>
+              <span class="text-ctp-subtext1 block mb-1">Languages:</span>
+              <div class="flex flex-wrap gap-1.5">
+                {['Java', 'C++', 'C', 'Python', 'JavaScript', 'TypeScript', 'Go', 'SQL'].map((item) => (
+                  <span class="px-2 py-0.5 rounded bg-ctp-surface0 text-ctp-text border border-ctp-surface1/40">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div>
+              <span class="text-ctp-subtext1 block mb-1">Backend &amp; Systems:</span>
+              <div class="flex flex-wrap gap-1.5">
+                {['Spring Boot', 'PostgreSQL', 'Linux', 'CMake', 'Git'].map((item) => (
+                  <span class="px-2 py-0.5 rounded bg-ctp-surface0 text-ctp-text border border-ctp-surface1/40">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-ctp-surface0/60 flex items-center justify-between">
+          <Button variant="secondary" size="sm" href="/">
+            &larr; Back to Home
+          </Button>
+          <span class="text-xs text-ctp-subtext1">Always learning. Always building.</span>
+        </div>
+      </div>
+    </Panel>
+  </div>
+</Layout>

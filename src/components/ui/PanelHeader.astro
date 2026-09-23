@@ -1,0 +1,42 @@
+---
+interface Props {
+  title?: string;
+  showDots?: boolean;
+  class?: string;
+}
+
+const {
+  title,
+  showDots = true,
+  class: className = "",
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    "flex items-center justify-between px-4 py-3 border-b border-ctp-surface0/60 bg-ctp-crust/50 select-none",
+    className,
+  ]}
+>
+  <div class="flex items-center gap-3">
+    {showDots && (
+      <div class="flex items-center gap-1.5" aria-hidden="true">
+        <span class="w-3 h-3 rounded-full bg-ctp-red/90 inline-block shadow-sm"></span>
+        <span class="w-3 h-3 rounded-full bg-ctp-yellow/90 inline-block shadow-sm"></span>
+        <span class="w-3 h-3 rounded-full bg-ctp-green/90 inline-block shadow-sm"></span>
+      </div>
+    )}
+
+    {title && (
+      <span class="text-xs font-mono text-ctp-subtext0 tracking-wide">
+        {title}
+      </span>
+    )}
+  </div>
+
+  <div class="flex items-center gap-2 text-ctp-subtext0 text-xs font-mono">
+    <slot name="actions">
+      <span class="w-2.5 h-2.5 rounded-full border border-ctp-surface1 inline-block opacity-60"></span>
+    </slot>
+  </div>
+</div>

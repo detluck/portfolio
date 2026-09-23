@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Panel from '../components/ui/Panel.astro';
+import Button from '../components/ui/Button.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<Layout title="Projects — Pavlo Sytnyk" lang="en">
+  <div class="space-y-6">
+    <Panel title="ls -la ~/projects">
+      <div class="space-y-4 font-mono text-sm text-ctp-subtext0">
+        <div class="flex items-center gap-2">
+          <span class="text-ctp-green font-semibold">detluck@workstation</span>
+          <span class="text-ctp-surface2">:</span>
+          <span class="text-ctp-blue font-semibold">~/projects</span>
+          <span class="text-ctp-subtext1">$ ls -la</span>
+        </div>
+        <h1 class="text-2xl font-bold text-ctp-text font-sans">My Projects</h1>
+        <p class="text-ctp-subtext1 font-sans">
+          This section is currently under construction. Projects showcase coming soon!
+        </p>
+        <div class="pt-4">
+          <Button variant="secondary" size="sm" href={base}>
+            &larr; Back to Home
+          </Button>
+        </div>
+      </div>
+    </Panel>
+  </div>
+</Layout>
